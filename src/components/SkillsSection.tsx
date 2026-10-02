@@ -6,40 +6,58 @@ export const SkillsSection: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'ALL SKILLS' },
+    { id: 'Artificial Intelligence', label: 'AI & ML' },
+    { id: 'AI Data & Evaluation', label: 'AI DATA & EVAL' },
+    { id: 'Voice & Audio AI', label: 'VOICE & AUDIO AI' },
     { id: 'Languages', label: 'LANGUAGES' },
     { id: 'Backend & Data', label: 'BACKEND & DATA' },
     { id: 'Web Development', label: 'WEB DEV' },
-    { id: 'Artificial Intelligence', label: 'AI & PROMPT' },
     { id: 'tools', label: 'TOOLS' },
-    { id: 'soft', label: 'COMMUNICATION' },
+    { id: 'soft', label: 'SOFT SKILLS' },
   ];
 
   return (
-    <section id="skills" className="relative w-full py-28 px-6 md:px-12 z-10">
+    <section
+      id="skills"
+      aria-labelledby="skills-heading"
+      className="relative w-full py-28 px-6 md:px-12 z-10"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Tag */}
-        <div className="flex items-center gap-3 font-mono text-xs text-crimson tracking-widest uppercase mb-4">
+        <div className="flex items-center gap-3 font-mono text-xs text-crimson tracking-widest uppercase mb-4" aria-hidden="true">
           <span className="w-8 h-[1px] bg-crimson" />
-          <span>05 // COMPETENCIES & TOOLKIT</span>
+          <span>05 // COMPETENCIES &amp; TOOLKIT</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <h2 className="font-display font-extrabold text-white uppercase tracking-tight"
-              style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)', lineHeight: '1.05' }}>
-              Technical &<br />
+            <h2
+              id="skills-heading"
+              className="font-display font-extrabold text-white uppercase tracking-tight"
+              style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)', lineHeight: '1.05' }}
+            >
+              Technical &amp; AI<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-crimson to-crimson-light">
                 Professional Toolkit
               </span>
             </h2>
           </div>
+          <p className="font-mono text-xs text-titanium-muted max-w-md uppercase tracking-wider">
+            Verified competencies spanning AI training, LLM evaluation, Bengali AI data, voice AI, software engineering, and prompt engineering.
+          </p>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap gap-2 mb-12">
+        <div
+          className="flex flex-wrap gap-2 mb-12"
+          role="tablist"
+          aria-label="Filter skills by category"
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}
+              role="tab"
+              aria-selected={activeCategory === cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`font-mono text-xs px-4 py-2 rounded-sm border transition-all duration-300 ${
                 activeCategory === cat.id
@@ -53,7 +71,11 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Skills Display Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          role="tabpanel"
+          aria-label={`Skills in category: ${activeCategory === 'all' ? 'All' : activeCategory}`}
+        >
           {/* Technical Skills */}
           {portfolioData.skills.technical
             .filter((s) => activeCategory === 'all' || s.category === activeCategory)
@@ -70,7 +92,7 @@ export const SkillsSection: React.FC = () => {
                     {skill.category}
                   </span>
                 </div>
-                <div className="w-2 h-2 rounded-full bg-crimson" />
+                <div className="w-2 h-2 rounded-full bg-crimson" aria-hidden="true" />
               </div>
             ))}
 
@@ -89,7 +111,7 @@ export const SkillsSection: React.FC = () => {
                     {tool.category}
                   </span>
                 </div>
-                <div className="w-2 h-2 rounded-full bg-titanium-muted" />
+                <div className="w-2 h-2 rounded-full bg-titanium-muted" aria-hidden="true" />
               </div>
             ))}
 
@@ -104,7 +126,7 @@ export const SkillsSection: React.FC = () => {
                   <h3 className="font-mono font-bold text-base text-white">
                     {soft.name}
                   </h3>
-                  <span className="font-mono text-[10px] text-crimson uppercase">CORE</span>
+                  <span className="font-mono text-[10px] text-crimson uppercase" aria-hidden="true">CORE</span>
                 </div>
                 <p className="font-mono text-xs text-titanium-muted">
                   {soft.detail}

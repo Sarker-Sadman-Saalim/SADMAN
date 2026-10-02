@@ -4,27 +4,30 @@ import { Brain, GraduationCap, MapPin } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="relative w-full py-28 px-6 md:px-12 z-10">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative w-full py-28 px-6 md:px-12 z-10"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Tag */}
-        <div className="flex items-center gap-3 font-mono text-xs text-crimson tracking-widest uppercase mb-6">
+        <div className="flex items-center gap-3 font-mono text-xs text-crimson tracking-widest uppercase mb-6" aria-hidden="true">
           <span className="w-8 h-[1px] bg-crimson" />
-          <span>01 // IDENTITY & OVERVIEW</span>
+          <span>01 // IDENTITY &amp; OVERVIEW</span>
         </div>
 
         {/* Large Statement Typography */}
         <div className="max-w-5xl mb-16">
-          <h2 className="font-display font-extrabold text-white tracking-tight leading-[1.1] uppercase"
-            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)' }}>
-            "Building at the intersection of{' '}
+          <h2
+            id="about-heading"
+            className="font-display font-extrabold text-white tracking-tight leading-[1.1] uppercase"
+            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)' }}
+          >
+            About{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-crimson to-crimson-light">
-              Software
+              Sarker Sadman Saalim
             </span>
-            ,{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-titanium to-titanium-muted">
-              Artificial Intelligence
-            </span>
-            , and Human-Centered Technology."
+            {' '}— AI Trainer &amp; Computer Science Engineer
           </h2>
         </div>
 
@@ -41,15 +44,15 @@ export const AboutSection: React.FC = () => {
 
             <div className="pt-4 flex flex-wrap items-center gap-4 text-xs font-mono text-titanium-muted">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-surface-border bg-obsidian-100/50">
-                <MapPin className="w-3.5 h-3.5 text-crimson" />
+                <MapPin className="w-3.5 h-3.5 text-crimson" aria-hidden="true" />
                 <span>Dhaka, Bangladesh</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-surface-border bg-obsidian-100/50">
-                <GraduationCap className="w-3.5 h-3.5 text-crimson" />
+                <GraduationCap className="w-3.5 h-3.5 text-crimson" aria-hidden="true" />
                 <span>North South University (2022–Present)</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-surface-border bg-obsidian-100/50">
-                <Brain className="w-3.5 h-3.5 text-crimson" />
+                <Brain className="w-3.5 h-3.5 text-crimson" aria-hidden="true" />
                 <span>AI Track • CGPA 3.65/4.00</span>
               </div>
             </div>
@@ -81,7 +84,7 @@ export const AboutSection: React.FC = () => {
                 </div>
               </div>
               <div className="mt-2 text-xs font-mono text-titanium-muted">
-                Prompt Tuning & Model Training
+                LLM Evaluation &amp; AI Training
               </div>
             </div>
 
@@ -95,7 +98,7 @@ export const AboutSection: React.FC = () => {
                 </div>
               </div>
               <div className="mt-2 text-xs font-mono text-titanium-muted">
-                Dept. of Math & Physics
+                Dept. of Math &amp; Physics, NSU
               </div>
             </div>
 

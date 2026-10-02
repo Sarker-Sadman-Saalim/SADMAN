@@ -15,22 +15,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollProgress }) => {
   return (
     <section
       id="hero"
+      aria-label="Introduction — Sarker Sadman Saalim, AI Trainer and Computer Science Engineer"
       className="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-16 px-6 md:px-12 z-10 select-none pointer-events-none"
     >
       {/* Top Meta Header */}
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pointer-events-auto">
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-surface-border bg-obsidian-100/60 backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" aria-hidden="true" />
           <span className="font-mono text-[11px] tracking-wider text-titanium-muted uppercase">
             {portfolioData.personal.availability}
           </span>
         </div>
 
         <div className="hidden sm:flex items-center gap-4 font-mono text-[11px] text-titanium-muted">
-          <span className="text-titanium-subtle">ACADEMIC & PROFESSIONAL:</span>
+          <span className="text-titanium-subtle">ACADEMIC &amp; PROFESSIONAL:</span>
           <span className="text-titanium font-medium">North South University</span>
-          <span className="text-white/20">•</span>
-          <span className="text-titanium font-medium">AI Trainer</span>
+          <span className="text-white/20" aria-hidden="true">•</span>
+          <span className="text-titanium font-medium">AI Trainer &amp; LLM Evaluator</span>
         </div>
       </div>
 
@@ -38,14 +39,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollProgress }) => {
       <div className="max-w-7xl mx-auto w-full my-auto py-12 pointer-events-auto">
         <div className="max-w-4xl">
           {/* Track Tag */}
-          <div className="flex items-center gap-2 text-crimson font-mono text-xs md:text-sm tracking-widest uppercase mb-4">
+          <div className="flex items-center gap-2 text-crimson font-mono text-xs md:text-sm tracking-widest uppercase mb-4" aria-hidden="true">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{portfolioData.personal.specialization}</span>
           </div>
 
-          {/* Hero Name */}
-          <h1 className="font-display font-extrabold uppercase tracking-tight text-white leading-[0.95] drop-shadow-2xl"
-            style={{ fontSize: 'clamp(2.75rem, 9vw, 6.5rem)' }}>
+          {/* Hero Name — Primary H1 */}
+          <h1
+            className="font-display font-extrabold uppercase tracking-tight text-white leading-[0.95] drop-shadow-2xl"
+            style={{ fontSize: 'clamp(2.75rem, 9vw, 6.5rem)' }}
+          >
             Sarker <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-titanium to-titanium-muted">
               Sadman Saalim
@@ -62,14 +65,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollProgress }) => {
             <a
               href="#projects"
               className="inline-flex items-center gap-3 px-6 py-3.5 rounded-sm bg-crimson hover:bg-crimson-light text-white font-mono text-xs tracking-widest uppercase transition-all duration-300 shadow-lg shadow-crimson/20 hover:shadow-crimson/40 hover:-translate-y-0.5"
+              aria-label="Explore Sarker Sadman Saalim's projects and work"
             >
               <span>EXPLORE WORK</span>
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </a>
 
             <a
               href="#contact"
               className="inline-flex items-center gap-3 px-6 py-3.5 rounded-sm border border-surface-border hover:border-titanium/40 bg-obsidian-200/40 hover:bg-obsidian-200/80 text-titanium font-mono text-xs tracking-widest uppercase transition-all duration-300 backdrop-blur-sm"
+              aria-label="Contact Sarker Sadman Saalim directly"
             >
               <span>CONNECT DIRECTLY</span>
             </a>
@@ -87,14 +92,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollProgress }) => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4" aria-hidden="true">
           <div className="flex flex-col items-end text-right font-mono text-[11px] text-titanium-muted">
             <span className="text-crimson font-medium">SCROLL TO DRIVE FILM</span>
             <span className="text-titanium-subtle">FRAME {String(currentFrameNumber).padStart(3, '0')} / 300 ACTIVE</span>
           </div>
 
           <div className="w-10 h-10 rounded-full border border-surface-border bg-obsidian-100/50 flex items-center justify-center text-titanium-muted animate-bounce">
-            <ArrowDown className="w-4 h-4 text-crimson" />
+            <ArrowDown className="w-4 h-4 text-crimson" aria-hidden="true" />
           </div>
         </div>
       </div>

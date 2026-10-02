@@ -8,11 +8,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative w-full border-t border-surface-border bg-obsidian-950 py-12 px-6 md:px-12 z-10 text-titanium-muted">
+    <footer
+      className="relative w-full border-t border-surface-border bg-obsidian-950 py-12 px-6 md:px-12 z-10 text-titanium-muted"
+      aria-label="Site footer"
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left branding */}
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-sm bg-obsidian-100 border border-surface-border flex items-center justify-center text-crimson">
+          <div className="w-7 h-7 rounded-sm bg-obsidian-100 border border-surface-border flex items-center justify-center text-crimson" aria-hidden="true">
             <Terminal className="w-3.5 h-3.5" />
           </div>
           <div>
@@ -20,13 +23,13 @@ export const Footer: React.FC = () => {
               {portfolioData.personal.name}
             </span>
             <span className="font-mono text-[10px] text-titanium-subtle">
-              © {new Date().getFullYear()} ALL RIGHTS RESERVED • NORTH SOUTH UNIVERSITY CSE
+              &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED • NORTH SOUTH UNIVERSITY CSE
             </span>
           </div>
         </div>
 
         {/* Center note */}
-        <div className="font-mono text-[11px] text-titanium-subtle text-center">
+        <div className="font-mono text-[11px] text-titanium-subtle text-center" aria-hidden="true">
           SCROLL-DRIVEN CINEMATIC ARCHITECTURE • 300 CANVASES • 60 FPS
         </div>
 
@@ -34,10 +37,10 @@ export const Footer: React.FC = () => {
         <button
           onClick={scrollToTop}
           className="flex items-center gap-2 font-mono text-xs text-titanium hover:text-crimson transition-colors border border-surface-border px-4 py-2 rounded-sm hover:border-crimson/40 bg-obsidian-100"
-          aria-label="Scroll back to top"
+          aria-label="Scroll back to top of page"
         >
           <span>TOP</span>
-          <ArrowUp className="w-3.5 h-3.5 text-crimson" />
+          <ArrowUp className="w-3.5 h-3.5 text-crimson" aria-hidden="true" />
         </button>
       </div>
     </footer>

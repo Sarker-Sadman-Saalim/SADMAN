@@ -40,13 +40,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentFrame }) => {
   }, []);
 
   const navLinks = [
-    { label: 'ABOUT', href: '#about' },
-    { label: 'AI FOCUS', href: '#ai-focus' },
-    { label: 'EXPERIENCE', href: '#experience' },
-    { label: 'PROJECTS', href: '#projects' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'EDUCATION', href: '#education' },
-    { label: 'CONTACT', href: '#contact' },
+    { label: 'ABOUT', href: '#about', ariaLabel: 'About Sarker Sadman Saalim' },
+    { label: 'AI FOCUS', href: '#ai-focus', ariaLabel: 'AI Training & Evaluation specialization' },
+    { label: 'EXPERIENCE', href: '#experience', ariaLabel: 'Professional experience' },
+    { label: 'PROJECTS', href: '#projects', ariaLabel: 'Engineering projects and systems' },
+    { label: 'SKILLS', href: '#skills', ariaLabel: 'Technical skills and toolkit' },
+    { label: 'EDUCATION', href: '#education', ariaLabel: 'Education and academic background' },
+    { label: 'CONTACT', href: '#contact', ariaLabel: 'Contact Sarker Sadman Saalim' },
   ];
 
   return (
@@ -56,15 +56,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentFrame }) => {
           ? 'bg-obsidian/85 backdrop-blur-md border-b border-surface-border py-3 shadow-2xl'
           : 'bg-transparent py-5'
       }`}
+      role="banner"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Brand / Name on Left */}
         <a
           href="#hero"
           className="group flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson rounded-sm"
-          aria-label="Back to top"
+          aria-label="Sarker Sadman Saalim — back to top"
         >
-          <div className="w-8 h-8 rounded-sm bg-obsidian-100 border border-surface-border flex items-center justify-center text-crimson group-hover:border-crimson/50 transition-colors">
+          <div className="w-8 h-8 rounded-sm bg-obsidian-100 border border-surface-border flex items-center justify-center text-crimson group-hover:border-crimson/50 transition-colors" aria-hidden="true">
             <Terminal className="w-4 h-4" />
           </div>
           <div>
@@ -72,13 +73,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentFrame }) => {
               {portfolioData.personal.name}
             </span>
             <span className="font-mono text-[10px] text-titanium-muted tracking-widest block uppercase">
-              AI • CSE • North South University
+              AI Trainer • LLM Evaluator • CSE
             </span>
           </div>
         </a>
 
         {/* Center Live Telemetry (Desktop Only) */}
-        <div className="hidden lg:flex items-center gap-6 font-mono text-[11px] text-titanium-muted border border-surface-border bg-obsidian-200/50 px-4 py-1.5 rounded-full">
+        <div className="hidden lg:flex items-center gap-6 font-mono text-[11px] text-titanium-muted border border-surface-border bg-obsidian-200/50 px-4 py-1.5 rounded-full" aria-hidden="true">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-titanium-muted">DHAKA {dhakaTime} UTC+6</span>
@@ -93,11 +94,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentFrame }) => {
 
         {/* Right Navigation (Desktop) */}
         <div className="hidden md:flex items-center gap-8">
-          <nav className="flex items-center gap-6 font-mono text-xs tracking-widest text-titanium-muted" aria-label="Main Navigation">
+          <nav
+            className="flex items-center gap-6 font-mono text-xs tracking-widest text-titanium-muted"
+            aria-label="Main navigation"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
+                aria-label={link.ariaLabel}
                 className="hover:text-crimson transition-colors relative py-1 focus:outline-none focus-visible:text-crimson"
               >
                 {link.label}
@@ -110,31 +115,40 @@ export const Navbar: React.FC<NavbarProps> = ({ currentFrame }) => {
         <div className="flex md:hidden items-center gap-3">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
             className="p-2 rounded-md border border-surface-border text-titanium hover:text-crimson transition-colors"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-obsidian-900 border-b border-surface-border px-6 py-8">
-          <nav className="flex flex-col gap-5 font-mono text-sm tracking-widest text-titanium-muted">
+        <div
+          id="mobile-nav"
+          className="md:hidden bg-obsidian-900 border-b border-surface-border px-6 py-8"
+        >
+          <nav
+            className="flex flex-col gap-5 font-mono text-sm tracking-widest text-titanium-muted"
+            aria-label="Mobile navigation"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
+                aria-label={link.ariaLabel}
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-crimson transition-colors py-1 flex items-center justify-between border-b border-surface-border/40"
               >
                 <span>{link.label}</span>
-                <span className="text-[10px] text-crimson">→</span>
+                <span className="text-[10px] text-crimson" aria-hidden="true">→</span>
               </a>
             ))}
           </nav>
-          <div className="mt-6 pt-4 border-t border-surface-border flex items-center justify-between font-mono text-xs text-titanium-muted">
+          <div className="mt-6 pt-4 border-t border-surface-border flex items-center justify-between font-mono text-xs text-titanium-muted" aria-hidden="true">
             <span>DHAKA {dhakaTime}</span>
             <span className="text-crimson">FRAME {String(currentFrame).padStart(3, '0')}</span>
           </div>
